@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/akwiatkowski/hello_server_client.git
+  revision: 455ab4ac0448c8e4cc2b9868f88fcf3fccfc8acd
+  specs:
+    hello_server_client (0.0.0)
+      ohm
+      ohm-contrib
+      oj
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -96,6 +105,7 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  hello_server_client!
   ohm
   ohm-contrib
   oj

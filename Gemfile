@@ -13,6 +13,8 @@ gem 'oj'
 # Project requirements
 gem 'rake'
 
+gem 'hello_server_client', github: 'akwiatkowski/hello_server_client'
+
 # Component requirements
 gem 'sass'
 gem 'haml'
