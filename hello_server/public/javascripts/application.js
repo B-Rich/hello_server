@@ -4,7 +4,7 @@ $(function() {
     type: "POST",
     url: "/background/refresh",
     success: (function( data ) {
-      alert( "Data Loaded: " + data );
+      console.log("Refreshed");
     })
   });
 });
