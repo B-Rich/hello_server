@@ -1,5 +1,5 @@
 .pure-menu.pure-menu-open.pure-menu-horizontal
   %ul
-    - @services.sort{|a,b| a.name <=> b.name}.each do |service|
+    - @services.each do |service|
       %li
         = link_to(service.name, "##{service.name}")
