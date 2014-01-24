@@ -1,9 +1,0 @@
----
-:orm: datamapper
-:test: none
-:mock: none
-:script: none
-:renderer: slim
-:stylesheet: none
-:namespace: Test
-:migration_format: number

@@ -1,4 +1,10 @@
-%h1 Hello Server
-%hr
-.content
-  = yield
+%html
+  %head
+    = javascript_include_tag 'jquery-2.0.3.min'
+    = javascript_include_tag 'jquery-ujs'
+    = javascript_include_tag 'application'
+  %body
+    %h1 Hello Server
+    %hr
+    .content
+      = yield
