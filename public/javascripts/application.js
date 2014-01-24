@@ -5,6 +5,7 @@ $(function() {
     url: "/background/refresh",
     success: (function( data ) {
       console.log("Refreshed");
+      $("#services").effect("highlight", {}, 3000);
     })
   });
 });
