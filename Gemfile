@@ -16,15 +16,8 @@ gem 'rake'
 # Component requirements
 gem 'sass'
 gem 'haml'
-gem 'dm-sqlite-adapter'
-gem 'dm-redis-adapter' #, github: 'whoahbot/dm-redis-adapter'
-gem 'dm-validations'
-gem 'dm-timestamps'
-gem 'dm-migrations'
-gem 'dm-constraints'
-gem 'dm-aggregates'
-gem 'dm-types'
-gem 'dm-core'
+gem 'ohm'
+gem 'ohm-contrib'
 
 # Test requirements
 gem 'rspec', :group => 'test'

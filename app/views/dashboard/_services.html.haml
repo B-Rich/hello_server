@@ -3,6 +3,6 @@
   .pure-g-r
     .pure-u-1-5
       %h3= service.name
-      %h6= service.updated_at.to_s
+      %h6= service.updated_time.to_s
     .pure-u-4-5.service-value
       = render("dashboard/_hash", layout: false, locals: {object: service.value} )

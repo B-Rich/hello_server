@@ -1,21 +1,36 @@
-class Service
-  include DataMapper::Resource
-  storage_names[:default] = "services"
+class Service < Ohm::Model
+  include Ohm::Timestamps
+  include Ohm::DataTypes
 
-  property :id, Serial, key: true
-  property :name, String, length: 32, required: true
-  property :value, Json
+  attribute :name
+  attribute :value_json
 
-  timestamps :at
+  index :name
 
   def self.find_or_initialize_by_name(name)
-    s = Service.first(name: name)
+    # find doesn't work
+    s = Service.all.select { |o| o.name == name }.first
     if s.nil?
       s = Service.new
       s.name = name
-    else
-      s = Service.get(s.id) # WTF?
     end
     return s
+  end
+
+  def value
+    nil if self.value_json.nil?
+    Oj.load(self.value_json.to_s)
+  end
+
+  def value=(obj)
+    if obj.nil?
+      self.value_json = nil
+      return
+    end
+    self.value_json = Oj.dump(obj)
+  end
+
+  def updated_time
+    Time.at(self.updated_at.to_i)
   end
 end

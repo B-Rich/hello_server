@@ -1,29 +1,21 @@
-##
-# A MySQL connection:
-# DataMapper.setup(:default, 'mysql://user:password@localhost/the_database_name')
+# Ohm does not have the concept of namespaces.
+# This means that you will not be able to have
+# a distinct test, development, or production database.
 #
-# # A Postgres connection:
-# DataMapper.setup(:default, 'postgres://user:password@localhost/the_database_name')
+# You can, however, run multiple redis servers on the same host
+# and point to them based on the environment:
 #
-# # A Sqlite3 connection
-# DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "development.db"))
-#
+# case Padrino.env
+#  when :development then Ohm.connect(:port => 6379)
+#  when :production then Ohm.connect(:port => 6380)
+#  when :test then Ohm.connect(:port => 6381)
+# end
 
-DataMapper.logger = logger
-DataMapper::Property::String.length(255)
-
-# sqlite3
-#case Padrino.env
-#  when :development then DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "test_development.db"))
-#  when :production  then DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "test_production.db"))
-#  when :test        then DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "test_test.db"))
-#end
-
-case Padrino.env
-  when :development then
-    DataMapper.setup(:default, { :adapter => "redis" })
-  when :production then
-    DataMapper.setup(:default, { :adapter => "redis" })
-  when :test then
-    DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "test_test.db"))
-end
+# Alternatively, you can try specifying a difference :db
+# which, outside of confirmation, appears to provide distinct
+# namespaces from testing:
+# case Padrino.env
+#  when :development then Ohm.connect(:db => 0)
+#  when :production then Ohm.connect(:db => 1)
+#  when :test then Ohm.connect(:db => 2)
+# end
