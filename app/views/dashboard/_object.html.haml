@@ -13,4 +13,7 @@
   .pure-g-r
     .pure-u-1.final-value
       %strong
-        = object
+        - if object.kind_of?(Time)
+          = l(object, format: :short)
+        - else
+          = object
