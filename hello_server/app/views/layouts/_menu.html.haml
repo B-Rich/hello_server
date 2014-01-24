@@ -1,0 +1,5 @@
+.pure-menu.pure-menu-open.pure-menu-horizontal
+  %ul
+    - @services.each do |service|
+      %li
+        = link_to(service.name, "##{service.name}")

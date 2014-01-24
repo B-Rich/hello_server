@@ -1,0 +1,11 @@
+- if object.kind_of? Hash
+  - object.keys.each do |key|
+    .pure-g-r
+      .pure-u-2-5
+        = key
+      .pure-u-3-5
+        = render("dashboard/_hash", layout: false, locals: {object: object[key]} )
+- else
+  .pure-g-r
+    .pure-u-1.l-box
+      = object
