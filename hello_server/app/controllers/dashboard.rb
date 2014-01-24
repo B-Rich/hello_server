@@ -1,6 +1,8 @@
 HelloServer::App.controller :dashboard do
   get :index, :provides => [:html, :rss, :atom] do
-    @notices = []
+    CurrentMachine.refresh
+
+    @services = Service.all
     render 'dashboard/index'
   end
 end

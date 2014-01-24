@@ -17,6 +17,7 @@ gem 'rake'
 gem 'sass'
 gem 'haml'
 gem 'dm-sqlite-adapter'
+gem 'dm-redis-adapter' #, github: 'whoahbot/dm-redis-adapter'
 gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'dm-migrations'
@@ -40,4 +41,8 @@ gem 'padrino', '0.11.4'
 #   gem 'padrino-' + g, '0.11.4'
 # end
 
-gem 'redis'
+# IPC and DB
+#gem 'redis'
+
+# Services
+gem 'usagewatch'

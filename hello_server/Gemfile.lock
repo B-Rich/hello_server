@@ -6,10 +6,11 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.5)
     bcrypt-ruby (3.1.2)
+    builder (3.2.2)
     daemons (1.1.9)
     data_objects (0.10.13)
       addressable (~> 2.1)
-    diff-lcs (1.2.5)
+    descendants_tracker (0.0.3)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
     dm-constraints (1.2.0)
@@ -21,6 +22,19 @@ GEM
       dm-core (~> 1.2.0)
     dm-migrations (1.2.0)
       dm-core (~> 1.2.0)
+    dm-redis-adapter (0.9.0)
+      dm-core (>= 1.2.0)
+      dm-core (>= 1.2.0)
+      dm-types (>= 1.2.0)
+      dm-types (>= 1.2.0)
+      dm-validations (>= 1.2.0)
+      hiredis (~> 0.4.0)
+      hiredis (~> 0.4.0)
+      jeweler (>= 1.4.0)
+      rake (>= 10.0.3)
+      redis (>= 3.0.4)
+      redis (>= 3.0.4)
+      rspec (~> 1.3.2)
     dm-sqlite-adapter (1.2.0)
       dm-do-adapter (~> 1.2.0)
       do_sqlite3 (~> 0.10.6)
@@ -39,19 +53,55 @@ GEM
     do_sqlite3 (0.10.13)
       data_objects (= 0.10.13)
     eventmachine (1.0.3)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
+    git (1.2.6)
+    github_api (0.11.1)
+      addressable (~> 2.3)
+      descendants_tracker (~> 0.0.1)
+      faraday (~> 0.8, < 0.10)
+      hashie (>= 1.2)
+      multi_json (>= 1.7.5, < 2.0)
+      nokogiri (~> 1.6.0)
+      oauth2
     haml (4.0.5)
       tilt
+    hashie (2.0.5)
+    highline (1.6.20)
+    hiredis (0.4.5)
     http_router (0.11.0)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
     i18n (0.6.9)
+    jeweler (2.0.0)
+      builder
+      bundler (>= 1.0)
+      git (>= 1.2.5)
+      github_api
+      highline (>= 1.6.15)
+      nokogiri (>= 1.5.10)
+      rake
+      rdoc
     json (1.8.1)
+    jwt (0.1.11)
+      multi_json (>= 1.5)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.5.2)
     multi_json (1.8.4)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
+    oauth2 (0.9.3)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 0.1.8)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
     oj (2.5.4)
     padrino (0.11.4)
       padrino-admin (= 0.11.4)
@@ -89,15 +139,10 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     rake (10.1.1)
+    rdoc (4.1.1)
+      json (~> 1.4)
     redis (3.0.7)
-    rspec (2.14.1)
-      rspec-core (~> 2.14.0)
-      rspec-expectations (~> 2.14.0)
-      rspec-mocks (~> 2.14.0)
-    rspec-core (2.14.7)
-    rspec-expectations (2.14.4)
-      diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.14.4)
+    rspec (1.3.2)
     sass (3.2.13)
     sinatra (1.4.4)
       rack (~> 1.4)
@@ -115,6 +160,7 @@ GEM
       polyglot (>= 0.3.1)
     url_mount (0.2.1)
       rack
+    usagewatch (0.0.7)
     uuidtools (2.1.4)
 
 PLATFORMS
@@ -125,6 +171,7 @@ DEPENDENCIES
   dm-constraints
   dm-core
   dm-migrations
+  dm-redis-adapter
   dm-sqlite-adapter
   dm-timestamps
   dm-types
@@ -134,7 +181,7 @@ DEPENDENCIES
   padrino (= 0.11.4)
   rack-test
   rake
-  redis
   rspec
   sass
   thin
+  usagewatch

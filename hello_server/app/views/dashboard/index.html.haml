@@ -1,1 +1,6 @@
-daszbord
+- @services.each do |service|
+  %h2= service.name
+  .value
+    = service.value.inspect
+  .date
+    = service.updated_at.to_s
