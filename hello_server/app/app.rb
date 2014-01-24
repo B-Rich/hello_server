@@ -8,6 +8,10 @@ module HelloServer
     enable :sessions
     layout :application
 
+    get "/" do
+      redirect_to "/dashboard"
+    end
+
     ##
     # Caching support.
     #
