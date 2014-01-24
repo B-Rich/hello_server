@@ -8,3 +8,4 @@ vendor/gems/*
 db/*.db
 .*.sw*
 .idea
+public/stylesheets/application.css
