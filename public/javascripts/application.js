@@ -1,11 +1,13 @@
 // Put your application scripts here
-$(function() {
+function getIntervalServices() {
   $.ajax({
     type: "POST",
     url: "/background/refresh",
-    success: (function( data ) {
-      console.log("Refreshed");
-      $("#services").effect("highlight", {}, 3000);
+    success: (function (data) {
+      $("#services").effect("highlight", {}, 2000);
     })
-  });
-});
+  }).done(function () {
+      console.log("Refreshed");
+      setTimeout(getIntervalServices, 6000);
+    });
+}
