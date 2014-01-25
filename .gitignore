@@ -9,3 +9,4 @@ db/*.db
 .*.sw*
 .idea
 public/stylesheets/application.css
+app/jobs/user_jobs/*.rb

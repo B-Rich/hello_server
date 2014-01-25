@@ -40,7 +40,7 @@ end
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
-  Padrino.require_dependencies(Padrino.root('app/jobs/*.rb'))
+  Padrino.require_dependencies(Padrino.root('app/jobs/**/*.rb'))
 end
 
 Padrino.load!
