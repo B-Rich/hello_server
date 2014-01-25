@@ -1,5 +1,8 @@
 .pure-menu.pure-menu-open.pure-menu-vertical
   %ul
+    %li.pure-menu-heading Services
     - @services.each do |service|
       %li
         = link_to(service.name, "##{service.name}")
+    %li.pure-menu-heading Actions
+    %li= link_to("Clean", '/dashboard/clean', method: :delete)
