@@ -8,6 +8,6 @@ function getIntervalServices() {
     })
   }).done(function () {
       console.log("Refreshed");
-      setTimeout(getIntervalServices, 6000);
+      setTimeout(getIntervalServices, 8000);
     });
 }
