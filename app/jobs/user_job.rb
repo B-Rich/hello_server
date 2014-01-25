@@ -1,3 +1,6 @@
+module UserJobs
+end
+
 class UserJob
   include SuckerPunch::Job
 

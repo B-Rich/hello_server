@@ -16,6 +16,7 @@ class CurrentMachineJob
     logger.info("#{NAME} started")
 
     usw = Usagewatch
+    usw.batch_refresh
 
     hdd_space = %x(df -H).split("\n").collect { |h| h.gsub(/\s+/, " ").split(" ") }[1..-1].collect { |h| { path: h[5], desc: h[0], free: h[3], used: h[2], capacity: h[1] } }
     hdd_space = hdd_space.select { |h| not HDD_IGNORED_PATH.include?(h[:path]) }
@@ -27,22 +28,22 @@ class CurrentMachineJob
 
     s.value = {
       cpu: {
-        cpu_usage: usw.uw_cpuused.to_s + "%",
+        cpu_usage: usw.uw_cpuused(false).to_s + "%",
         load: usw.uw_load,
       },
       memory: {
         usage: usw.uw_memused.to_s + "%",
       },
       hdd: {
-        diskioreads: usw.uw_diskioreads,
-        diskiowrites: usw.uw_diskiowrites,
+        diskioreads: usw.uw_diskioreads(false),
+        diskiowrites: usw.uw_diskiowrites(false),
       },
       hdd_free_space: hdd_space_frees,
       network: {
         tcp_usage: usw.uw_tcpused,
         udp_usage: usw.uw_udpused,
-        bandrx: usw.uw_bandrx,
-        bandtx: usw.uw_bandtx
+        bandrx: usw.uw_bandrx(false),
+        bandtx: usw.uw_bandtx(false)
       },
       cpu_top: cpu_top,
       mem_top: mem_top,

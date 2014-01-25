@@ -1,5 +1,7 @@
 // Put your application scripts here
 function getIntervalServices() {
+  var _interval = $("input[name='refresh_interval']").val();
+
   $.ajax({
     type: "POST",
     url: "/background/refresh",
@@ -7,7 +9,7 @@ function getIntervalServices() {
       $("#services").effect("highlight", {}, 2000);
     })
   }).done(function () {
-      console.log("Refreshed");
-      setTimeout(getIntervalServices, 8000);
+      console.log("Refreshing in " + _interval);
+      setTimeout(getIntervalServices, _interval);
     });
 }

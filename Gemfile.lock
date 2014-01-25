@@ -7,6 +7,12 @@ GIT
       ohm-contrib
       oj
 
+GIT
+  remote: git://github.com/akwiatkowski/usagewatch.git
+  revision: a1df22fed01959e39235cb9f13fa9ea338c04787
+  specs:
+    usagewatch (0.0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -103,7 +109,6 @@ GEM
       polyglot (>= 0.3.1)
     url_mount (0.2.1)
       rack
-    usagewatch (0.0.7)
 
 PLATFORMS
   ruby
@@ -121,4 +126,4 @@ DEPENDENCIES
   sass
   sucker_punch
   thin
-  usagewatch
+  usagewatch!

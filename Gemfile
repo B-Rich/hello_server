@@ -44,4 +44,4 @@ gem 'padrino', '0.11.4'
 #gem 'redis'
 
 # Services
-gem 'usagewatch'
+gem 'usagewatch', github: 'akwiatkowski/usagewatch'
