@@ -13,6 +13,7 @@ gem 'oj'
 # Project requirements
 gem 'rake'
 
+# Main model
 gem 'hello_server_client', github: 'akwiatkowski/hello_server_client'
 
 # Component requirements
@@ -20,6 +21,9 @@ gem 'sass'
 gem 'haml'
 gem 'ohm'
 gem 'ohm-contrib'
+
+# Background jobs
+gem 'sucker_punch'
 
 # Test requirements
 gem 'rspec', :group => 'test'
