@@ -1,4 +1,5 @@
-- if object.kind_of? Hash
+- puts object.inspect
+- if object.kind_of? Hash and object["_value"].nil? and object["_options"].nil?
   - object.keys.each do |key|
     .pure-g-r
       .pure-u-2-5
@@ -12,8 +13,14 @@
 - else
   .pure-g-r
     .pure-u-1.final-value
-      %strong
-        - if object.kind_of?(Time)
-          = l(object, format: :short)
+      - if object.kind_of?(Hash) and not object["_value"].nil?
+        - value = object["_value"]
+        - css_klass = object["_options"]["klass"]
+      - else
+        - value = object
+        - css_klass = ""
+      %strong{class: css_klass}
+        - if value.kind_of?(Time)
+          = l(value, format: :short)
         - else
-          = object
+          = value

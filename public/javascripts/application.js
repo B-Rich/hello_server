@@ -6,7 +6,7 @@ function getIntervalServices() {
     type: "POST",
     url: "/background/refresh",
     success: (function (data) {
-      $("#services").effect("highlight", {}, 2000);
+      $("#services").effect("highlight", {}, 800);
     })
   }).done(function () {
       console.log("Refreshing in " + _interval);

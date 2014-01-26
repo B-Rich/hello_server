@@ -14,4 +14,13 @@ HelloServer::App.controller :dashboard do
     redirect_to '/dashboard'
   end
 
+  delete :purge, csrf_protection: false do
+    HelloServerClient::Service.all.each do |s|
+      if s.updated_at < (Time.now - 10)
+        s.delete
+      end
+    end
+    redirect_to '/dashboard'
+  end
+
 end
