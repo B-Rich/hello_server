@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/akwiatkowski/hello_server_client.git
-  revision: b268c961e53d11ff1da3bc2771f1659c5277fced
+  revision: 99ca49f4b6a0e6f554da93169781576d0eb618c0
   specs:
-    hello_server_client (0.0.1)
+    hello_server_client (0.1.0)
       ohm
       ohm-contrib
       oj
@@ -73,6 +73,8 @@ GEM
     padrino-mailer (0.11.4)
       mail (~> 2.5.3)
       padrino-core (= 0.11.4)
+    padrino-warden (0.1.0)
+      warden (>= 0.10.3)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-protection (1.5.2)
@@ -109,6 +111,8 @@ GEM
       polyglot (>= 0.3.1)
     url_mount (0.2.1)
       rack
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -120,6 +124,7 @@ DEPENDENCIES
   ohm-contrib
   oj
   padrino (= 0.11.4)
+  padrino-warden
   rack-test
   rake
   rspec

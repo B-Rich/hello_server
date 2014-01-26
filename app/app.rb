@@ -4,12 +4,52 @@ module HelloServer
     register Padrino::Rendering
     register Padrino::Mailer
     register Padrino::Helpers
+    register Padrino::Warden
 
     enable :sessions
     layout :application
 
     get "/" do
-      redirect_to "/dashboard"
+      #redirect_to "/dashboard"
+    end
+
+    get '/unauthenticated' do
+      redirect_to "/"
+    end
+
+    Warden::Strategies.add(:password) do
+      def valid?
+        params["email"] || params["password"]
+      end
+
+      def authenticate!
+        u = User.authenticate(params["email"], params["password"])
+        u.nil? ? fail!("Could not log in") : success!(u)
+      end
+    end
+
+    Warden::Manager.serialize_into_session do |user|
+      user.id
+    end
+
+    Warden::Manager.serialize_from_session do |id|
+      a
+      User.find(id)
+    end
+
+    alias_method :current_account, :user
+
+    def store_location!
+      session['warden.location'] = request.path
+    end
+
+    def redirect_back_or(*args)
+      if back = session['warden.location']
+        session.delete('warden.location')
+        redirect(back)
+      else
+        redirect(*args)
+      end
     end
 
     ##

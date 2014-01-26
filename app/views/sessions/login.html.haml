@@ -1,0 +1,4 @@
+- form_for :user, '/sessions/login', method: :post do |f|
+  = f.text_field_block :email
+  = f.password_field_block :password
+  = f.submit_block "Sign up!", :class => 'button'
