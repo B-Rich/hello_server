@@ -1,5 +1,26 @@
 - puts object.inspect
-- if object.kind_of? Hash and object["_value"].nil? and object["_options"].nil?
+- if object.kind_of? Hash
+  - puts 1
+  - if object["_header"].kind_of?(Array)
+    - puts 2
+  - if object["_data"].kind_of?(Array)
+    - puts 3
+
+- if object.kind_of? Hash and object["_header"].kind_of?(Array) and object["_data"].kind_of?(Array)
+  - # 2 dimensional table
+  %table.pure-table.pure-table-bordered.pure-table-striped.full-size-table
+    %thead
+      %tr
+        - object["_header"].each do |header|
+          %th= header
+    - object["_data"].each do |row, i|
+      %tr
+        - object["_header"].each do |key|
+          - value = row[key]
+          %td= render("dashboard/_object", layout: false, locals: {object: value} )
+
+- elsif object.kind_of? Hash and object["_value"].nil? and object["_options"].nil?
+  - # regular hash
   - object.keys.each do |key|
     .pure-g-r
       .pure-u-2-5
@@ -7,20 +28,29 @@
       .pure-u-3-5
         = render("dashboard/_object", layout: false, locals: {object: object[key]} )
   %br
+
 - elsif object.kind_of? Array
+  - # list
   - object.each do |obj|
     = render("dashboard/_object", layout: false, locals: {object: obj} )
+
 - else
   .pure-g-r
     .pure-u-1.final-value
       - if object.kind_of?(Hash) and not object["_value"].nil?
+        - # cell with options
         - value = object["_value"]
         - css_klass = object["_options"]["klass"]
+        - subvalue = object["_subvalue"]
       - else
+        - # raw cell
         - value = object
         - css_klass = ""
-      %strong{class: css_klass}
+        - subvalue = nil
+      %div{class: css_klass}
         - if value.kind_of?(Time)
           = l(value, format: :short)
         - else
           = value
+        - unless subvalue.nil?
+          .subvalue= value
