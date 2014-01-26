@@ -3,10 +3,10 @@ module UserJobs
     NAME = "test"
 
     def refresh(event = nil)
-      s = HelloServerClient::Service.find_or_initialize_by_name(NAME)
-      s.value = {
-        test: "ok"
-      }
+      s = HelloServerClient::Notification.find_or_initialize_by_name(NAME)
+      s.summaries = [
+        ["serie", "value", 10.0]
+      ]
       s.save!
       s
     end

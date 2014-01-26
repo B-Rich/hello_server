@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/akwiatkowski/hello_server_client.git
-  revision: a6a82cf6b5067fa64eac5a6b15819f4c958d5845
+  revision: b268c961e53d11ff1da3bc2771f1659c5277fced
   specs:
     hello_server_client (0.0.1)
       ohm
