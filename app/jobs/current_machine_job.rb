@@ -28,8 +28,18 @@ class CurrentMachineJob
 
     s.value = {
       cpu: {
-        cpu_usage: usw.uw_cpuused(false).to_s + "%",
-        load: usw.uw_load,
+        cpu_usage: {
+          _value: usw.uw_cpuused(false).to_s + "%",
+          _options: {
+            klass: "red"
+          }
+        },
+        load: {
+          _value: usw.uw_load,
+          _options: {
+            klass: "red strong"
+          }
+        }
       },
       memory: {
         usage: usw.uw_memused.to_s + "%",
