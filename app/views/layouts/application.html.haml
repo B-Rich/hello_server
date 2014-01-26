@@ -14,7 +14,8 @@
             = render("layouts/_menu", layout: false)
           .pure-u-4-5
       .pure-u-3-5
-        %h1 Hello Server
+        %h1
+          = link_to "Hello Server", "/"
         %hr
         = yield
       .pure-u-1-5
