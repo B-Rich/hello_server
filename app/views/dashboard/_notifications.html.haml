@@ -1,0 +1,15 @@
+- @notifications.each do |notification|
+  %a{name: notification.name}
+  .notification
+    .pure-g-r.notification-name-row
+      .notification-name.pure-u-4-5
+        = notification.name
+      .notification-updated-at.pure-u-1-5
+        - t = notification.updated_time
+        = l(t, format: :short)
+        .notification-seconds_ago
+          = (Time.now - t).round
+          seconds ago
+    .pure-g-r
+      .pure-u-1.notification-value
+        = render("dashboard/_object", layout: false, locals: {object: notification, details: details} )

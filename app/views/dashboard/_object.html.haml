@@ -11,9 +11,41 @@
           - if cell.kind_of?(Hash)
             - value = cell["value"]
             - klass = cell["klass"]
+            - subvalue = cell["subvalue"]
           - else
             - value = cell
             - klass = ""
-          %td{class: klass}= value
+            - subvalue = nil
+          %td{class: klass}
+            = value
+            - if subvalue
+              .subvalue= subvalue
   - else
     %p No data
+
+- if details
+  %p Details
+  %table.pure-table.pure-table-bordered.pure-table-striped.full-size-table
+    - if object.detail_header
+      %thead
+        %tr
+          - object.detail_header.each do |header|
+            %th= header
+    - if object.details
+      - object.details.each do |row|
+        %tr
+          - row.each do |cell|
+            - if cell.kind_of?(Hash)
+              - value = cell["value"]
+              - klass = cell["klass"]
+              - subvalue = cell["subvalue"]
+            - else
+              - value = cell
+              - klass = ""
+              - subvalue = nil
+            %td{class: klass}
+              = value
+              - if subvalue
+                .subvalue= subvalue
+    - else
+      %p No data

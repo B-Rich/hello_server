@@ -1,9 +1,9 @@
-= hidden_field_tag :refresh_interval, value: 40000
+= hidden_field_tag :refresh_interval, value: 4000
 
-#services
-  = render("dashboard/_services", layout: false)
+#notifications
+  = render("dashboard/_notifications", layout: false, locals: {details: false})
 
 :javascript
   $(function () {
-    getIntervalServices();
+    getIntervalNotifications();
   });
