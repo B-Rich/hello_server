@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/akwiatkowski/hello_server_client.git
-  revision: b268c961e53d11ff1da3bc2771f1659c5277fced
+  revision: 99ca49f4b6a0e6f554da93169781576d0eb618c0
   specs:
-    hello_server_client (0.0.1)
+    hello_server_client (0.1.0)
       ohm
       ohm-contrib
       oj
