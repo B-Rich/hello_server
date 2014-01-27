@@ -5,16 +5,21 @@ module HelloServer
     register Padrino::Mailer
     register Padrino::Helpers
     register Padrino::Warden
+    register Padrino::Admin::Utils::Crypt
 
     enable :sessions
     layout :application
 
     get "/" do
-      #redirect_to "/dashboard"
+      if user
+        redirect_to "/dashboard"
+      else
+        redirect_to "/sessions/login"
+      end
     end
 
-    get '/unauthenticated' do
-      redirect_to "/"
+    post '/unauthenticated' do
+      redirect_to "/sessions/login"
     end
 
     Warden::Strategies.add(:password) do
@@ -29,12 +34,11 @@ module HelloServer
     end
 
     Warden::Manager.serialize_into_session do |user|
-      user.id
+      user.email
     end
 
-    Warden::Manager.serialize_from_session do |id|
-      a
-      User.find(id)
+    Warden::Manager.serialize_from_session do |email|
+      User.find(email: email).first
     end
 
     alias_method :current_account, :user

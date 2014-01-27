@@ -1,4 +1,5 @@
-- form_for :user, '/sessions/login', method: :post do |f|
-  = f.text_field_block :email
-  = f.password_field_block :password
-  = f.submit_block "Sign up!", :class => 'button'
+- form_tag '/sessions/login', class: 'pure-form', method: :post do
+  - field_set_tag do
+    = text_field_tag :email, value: params[:email]
+    = password_field_tag :password
+    = submit_tag "Sign in", class: 'pure-button pure-button-primary'
