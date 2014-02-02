@@ -1,18 +1,11 @@
 source 'https://rubygems.org'
 
-# Gems needed by Rubinius
-gem 'rubysl' # install manually
-gem 'json'
-
 # Distribute your app as a gem
 # gemspec
 
 # Server requirements
-gem 'thin' # or mongrel
+# gem 'thin' # or mongrel
 # gem 'trinidad', :platform => 'jruby'
-
-# Optional JSON codec (faster performance)
-gem 'oj'
 
 # Project requirements
 gem 'rake'

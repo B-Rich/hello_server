@@ -1,2 +1,5 @@
 #rvm use 2.0.0@hello_server --create
-rvm use rbx-2.2.3@hello_server --create
+#rvm use rbx-2.2.3@hello_server --create
+
+export JRUBY_OPTS="-Xcext.enabled=true"
+rvm use jruby-1.7.9@hello_server --create
