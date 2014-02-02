@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+# Gems needed by Rubinius
+gem 'rubysl' # install manually
+gem 'json'
+
 # Distribute your app as a gem
 # gemspec
 
